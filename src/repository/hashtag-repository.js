@@ -1,18 +1,31 @@
+const  HashTag =  require('../models/hashtag');
 
-const  tweet =  require('../models/Tweet');
-
-class tweetRepository{
+class HashTagRepository{
 
     async create( data ){
 
         try {
             
-            const Tweet=  await tweet.create( data );
+            const tag=  await HashTag.create( data );
 
-            return Tweet;
+            return tag;
         } 
         catch (error) {
            
+            console.log('something is wrong in repository layer');
+            throw error;
+        }
+    }
+
+    async bulkCreate( data ){
+
+        try {
+             
+            const tags = await HashTag.insertMany( data );
+            return tags
+
+        } 
+        catch (error) {
             console.log('something is wrong in repository layer');
             throw error;
         }
@@ -22,24 +35,9 @@ class tweetRepository{
 
         try {
             
-            const Tweets =  await tweet.findById( id );
+            const tag =  await HashTag.findById( id );
 
-            return Tweets;
-        } 
-        catch (error) {
-           
-            console.log('something is wrong in repository layer');
-            throw error;
-        }
-    }
-
-    async getWithComments( id ){
-
-        try {
-            
-           const Tweets =  await tweet.findById( id ).populate({path: 'comments'});
-
-            return Tweets;
+            return tag;
         } 
         catch (error) {
            
@@ -52,7 +50,7 @@ class tweetRepository{
 
         try {
             
-            await tweet.findByIdAndRemove( id )
+            await HashTag.findByIdAndRemove( id )
 
             return true;
         } 
@@ -68,9 +66,9 @@ class tweetRepository{
 
         try {
               
-            const tweets =  await tweet.find().skip( offset ).limit( limit );
+            const tags =  await HashTag.find().skip( offset ).limit( limit );
 
-            return tweets;
+            return tags;
         } 
         catch (error) {
            
@@ -79,7 +77,25 @@ class tweetRepository{
         }
     }
 
+    async findByName ( titleList ){
+
+        try {
+           
+            const tags =  await HashTag.find({
+                title: titleList
+            });
+
+            return tags;
+        } 
+        catch (error) {
+           
+            console.log('something is wrong in repository layer');
+            throw error;
+        
+        }
+    }
+
  
 }
 
-module.exports = tweetRepository;
+module.exports = HashTagRepository;

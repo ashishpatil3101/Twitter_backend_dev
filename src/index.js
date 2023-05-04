@@ -4,6 +4,9 @@ const connect = require('./config/database');
 
 const comment  = require('./models/comment');
 
+const t  = require('./service/tweet-service')
+
+const tweet = new t();
 
 const setupAndStartServer =  () =>{
 
@@ -14,9 +17,10 @@ const setupAndStartServer =  () =>{
         
         await connect();
 
-        console.log('db coonection has made');
+        console.log('db coonection has made .yup');
         // const  t = await comment.create({content: "hey first tweet", userEmail: 'asfdf@gmail.com'});
         // console.log(t);
+        // tweet.create({content: 'hey having fun #fun #hadrwork'});
 
     })
 }
