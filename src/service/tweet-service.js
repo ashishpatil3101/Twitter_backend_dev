@@ -11,24 +11,27 @@ class TweetService {
      async create ( data ){
 
         try {
-            
+         console.log(data);
             const content  =  data.content;
             let Tags =  content.match(/#[a-zA-z0-9_]+/g);//extracts all hashtag
-            Tags =  Tags.map( (tag) =>  tag.substring(1) );
-       
-
+            Tags =  Tags.map( (tag) =>  tag.substring(1).toLowerCase());
+           
             const tweet = await this.tweetRepository.create(data);
          
             let alreadyPresentTags = await this.HashTagRepository.findByName(Tags);
-          
-            let newTags =  Tags.filter( tag => !alreadyPresentTags.includes(tag));
+            const presentTweetAfterFilter = [];
+            alreadyPresentTags.forEach(TWEET => presentTweetAfterFilter.push(TWEET.title))
+         
+            let newTags =  Tags.filter( tag => !presentTweetAfterFilter.includes(tag));
             
             newTags = newTags.map( ( tag )=> {
                    return {title: tag, tweets: [tweet.id]}
             }
             );
+            console.log("new tasg",newTags);
 
-            await  this.HashTagRepository.bulkCreate(newTags);
+           if (newTags.length != 0) await  this.HashTagRepository.bulkCreate(newTags);
+        
             alreadyPresentTags.forEach( (tag) => {
                
                tag.tweets.push(tweet.id)

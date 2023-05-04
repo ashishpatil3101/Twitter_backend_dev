@@ -13,7 +13,7 @@ class tweetRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('something is wrong in twitter repository layer');
             throw error;
         }
     }
@@ -28,7 +28,7 @@ class tweetRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('something is wrong in twitter repository layer');
             throw error;
         }
     }
@@ -43,7 +43,7 @@ class tweetRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('something is wrong in twitter repository layer');
             throw error;
         }
     }
@@ -58,7 +58,7 @@ class tweetRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('something is wrong in twitter repository layer');
             throw error;
         }
     }
@@ -74,7 +74,7 @@ class tweetRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('something is wrong in twitter repository layer');
             throw error;
         }
     }

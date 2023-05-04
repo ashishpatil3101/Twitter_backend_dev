@@ -12,7 +12,7 @@ class HashTagRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('somethings wrong in hashtag repo layer');
             throw error;
         }
     }
@@ -26,7 +26,7 @@ class HashTagRepository{
 
         } 
         catch (error) {
-            console.log('something is wrong in repository layer');
+            console.log('somethings wrong in hashtag repo layer');
             throw error;
         }
     }
@@ -41,7 +41,7 @@ class HashTagRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('somethings wrong in hashtag repo layer');
             throw error;
         }
     }
@@ -56,7 +56,7 @@ class HashTagRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('somethings wrong in hashtag repo layer');
             throw error;
         }
     }
@@ -72,7 +72,7 @@ class HashTagRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('somethings wrong in hashtag repo layer');
             throw error;
         }
     }
@@ -89,7 +89,7 @@ class HashTagRepository{
         } 
         catch (error) {
            
-            console.log('something is wrong in repository layer');
+            console.log('somethings wrong in hashtag repo layer');
             throw error;
         
         }
