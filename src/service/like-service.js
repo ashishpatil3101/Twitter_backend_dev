@@ -13,7 +13,7 @@ class likeService{
      async toggleLike( modelId, modelType, userId){
 
         try {
-            
+            console.log(modelId,modelType,userId)
             if( modelType === 'Tweet' ) {
                 
                 var likeable = await this.tweet.get(modelId);
