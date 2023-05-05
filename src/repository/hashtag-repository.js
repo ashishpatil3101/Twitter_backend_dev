@@ -1,20 +1,10 @@
 const  HashTag =  require('../models/hashtag');
+const crudRepository = require('./crud-repository');
 
-class HashTagRepository{
+class HashTagRepository extends crudRepository{
 
-    async create( data ){
-
-        try {
-            
-            const tag=  await HashTag.create( data );
-
-            return tag;
-        } 
-        catch (error) {
-           
-            console.log('somethings wrong in hashtag repo layer');
-            throw error;
-        }
+    constructor(){
+        super(HashTag);
     }
 
     async bulkCreate( data ){
@@ -31,51 +21,6 @@ class HashTagRepository{
         }
     }
 
-    async get( id ){
-
-        try {
-            
-            const tag =  await HashTag.findById( id );
-
-            return tag;
-        } 
-        catch (error) {
-           
-            console.log('somethings wrong in hashtag repo layer');
-            throw error;
-        }
-    }
-
-    async destroy( id ){
-
-        try {
-            
-            await HashTag.findByIdAndRemove( id )
-
-            return true;
-        } 
-        catch (error) {
-           
-            console.log('somethings wrong in hashtag repo layer');
-            throw error;
-        }
-    }
-
-    async getAll( offset, limit ){
-
-
-        try {
-              
-            const tags =  await HashTag.find().skip( offset ).limit( limit );
-
-            return tags;
-        } 
-        catch (error) {
-           
-            console.log('somethings wrong in hashtag repo layer');
-            throw error;
-        }
-    }
 
     async findByName ( titleList ){
 
