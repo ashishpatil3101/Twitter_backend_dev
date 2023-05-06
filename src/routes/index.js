@@ -19,10 +19,10 @@ rout.post('/tweets', isAuthenticated, tweetController.createTweet);
 rout.get('/tweet/:id', tweetController.getTweet);
 
 //like apis
-rout.post('/likes/toggle',likeController.toggleLike)
+rout.post('/likes/toggle',isAuthenticated , likeController.toggleLike)
 
 //comment api
-rout.post('/comments', commentController.createComment);
+rout.post('/comments', isAuthenticated , commentController.createComment);
 
 //user Api
 rout.post('/user/signup' , signUp);
